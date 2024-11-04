@@ -1,4 +1,10 @@
-# React + TypeScript + Vite
+# Redux Travel Game
+A game using redux to manage state
+
+## Technologies
+React, TypeScript, TailwindCSS and Redux
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
