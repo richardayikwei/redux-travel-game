@@ -218,6 +218,12 @@ const Traveler = () => {
             warn === "Unable to continue traveling"
               ? (textColor = "text-red-500 animate-bounce")
               : "";
+            warn === "Extreme Tiredness"
+              ? (textColor = "text-red-500 animate-bounce")
+              : "";
+            warn === "Invalid number of days"
+              ? (textColor = "text-red-500 animate-bounce")
+              : "";
             return (
               <div
                 className={`border ${textColor} border-black h-20 w-1/6 flex text-center justify-center items-center rounded-lg`}
