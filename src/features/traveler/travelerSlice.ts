@@ -40,8 +40,14 @@ export const travelerSlice = createSlice({
             }
         },
         sell: (state, action) => {
-            state.supplies -= action.payload;
-            state.cash += (1 * action.payload);
+            if (action.payload < 0) {
+                state.suppliesWarning = 'Invalid Days'
+            } else if (action.payload > state.supplies) {
+                state.suppliesWarning = 'Exceeded maximum number of supplies'
+            } else if (state.supplies > 0) {
+                state.supplies -= action.payload;
+                state.cash += (0.5 * action.payload);
+            }
         },
         travel: (state, action) => {
             state.days += action.payload;

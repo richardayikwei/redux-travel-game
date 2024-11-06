@@ -23,20 +23,38 @@ const Traveler = () => {
   const dispatch = useDispatch();
 
   const suppliesNumber = useSelector(
-    (state : RootTravelerState) => state.traveler.supplies
+    (state: RootTravelerState) => state.traveler.supplies
   );
-  const cashAmount = useSelector((state:RootTravelerState) => state.traveler.cash);
-  const numberOfDays = useSelector((state:RootTravelerState) => state.traveler.days);
-  const fatigueLevels = useSelector((state:RootTravelerState) => state.traveler.fatigue);
-  const reputationLevels = useSelector((state:RootTravelerState) => state.traveler.reputation);
-  const levelOfDisrepair = useSelector((state:RootTravelerState) => state.traveler.disrepair);
-  const cashNote = useSelector((state:RootTravelerState) => state.traveler.cashWarning);
-  const suppliesNote = useSelector((state:RootTravelerState) => state.traveler.suppliesWarning);
-  const fatigueNote = useSelector((state:RootTravelerState) => state.traveler.fatigueWarning);
+  const cashAmount = useSelector(
+    (state: RootTravelerState) => state.traveler.cash
+  );
+  const numberOfDays = useSelector(
+    (state: RootTravelerState) => state.traveler.days
+  );
+  const fatigueLevels = useSelector(
+    (state: RootTravelerState) => state.traveler.fatigue
+  );
+  const reputationLevels = useSelector(
+    (state: RootTravelerState) => state.traveler.reputation
+  );
+  const levelOfDisrepair = useSelector(
+    (state: RootTravelerState) => state.traveler.disrepair
+  );
+  const cashNote = useSelector(
+    (state: RootTravelerState) => state.traveler.cashWarning
+  );
+  const suppliesNote = useSelector(
+    (state: RootTravelerState) => state.traveler.suppliesWarning
+  );
+  const fatigueNote = useSelector(
+    (state: RootTravelerState) => state.traveler.fatigueWarning
+  );
   const reputationNote = useSelector(
-    (state:RootTravelerState) => state.traveler.reputationWarning
+    (state: RootTravelerState) => state.traveler.reputationWarning
   );
-  const repairNote = useSelector((state:RootTravelerState) => state.traveler.repairWarning);
+  const repairNote = useSelector(
+    (state: RootTravelerState) => state.traveler.repairWarning
+  );
 
   const buttonNames = [
     "Travel",
@@ -173,16 +191,25 @@ const Traveler = () => {
         <div className="flex justify-center grid-rows-1 grid-cols-7 gap-4">
           {warnings.map((warn, idx) => {
             let textColor;
-            warn == "Invalid Amount" ? textColor = "text-red-500 animate-bounce" : "";
+            warn == "Invalid Amount"
+              ? (textColor = "text-red-500 animate-bounce")
+              : "";
             warn == "Sorry not enough cash for transaction"
+              ? (textColor = "text-red-500 animate-bounce")
+              : "";
             warn == "Invalid Days"
+              ? (textColor = "text-red-500 animate-bounce")
+              : "";
             warn == "Warning meduim tiredness"
               ? (textColor = "text-yellow-500 animate-bounce")
               : "";
             warn == "Unable to continue gathering"
               ? (textColor = "text-red-500 animate-bounce")
               : "";
-            warn == "Exceeded maximum number of gathering days"
+            warn === "Exceeded maximum number of gathering days"
+              ? (textColor = "text-red-500 animate-bounce")
+              : "";
+            warn === "Exceeded maximum number of supplies"
               ? (textColor = "text-red-500 animate-bounce")
               : "";
             return (
