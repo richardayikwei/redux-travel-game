@@ -3,23 +3,24 @@ import { createSlice } from "@reduxjs/toolkit";
 export const travelerSlice = createSlice({
     name: 'traveler',
     initialState: {
-        cash: 200,
+        cash: 100,
         days: 0,
         supplies: 0,
         fatigue: 0,
         disrepair: 0,
         reputation: 100,
-        cashWarning: 'Sorry not enough cash',
+        cashWarning: 'Funds Available',
         suppliesWarning: 'Sorry not enough supplies',
         fatigueWarning: 'Warning meduim tiredness',
         reputationWarning: 'Suspicious character',
         repairWarning: 'Meduim damage to wagon',
-
     },
     reducers: {
         buy: (state, action) => {
-            if ((state.cash - action.payload) < 0) {
-                state.cashWarning = 'Sorry you have run out of cash';
+            if (action.payload < 0) {
+                state.cashWarning = 'Invalid Amount';
+            } else if ((state.cash - action.payload) < 0) {
+                state.cashWarning = 'Sorry not enough cash for transaction';
             } else {
                 state.supplies += (2 * action.payload);
                 state.cash -= action.payload;

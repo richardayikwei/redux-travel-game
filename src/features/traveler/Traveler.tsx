@@ -8,8 +8,8 @@ import {
   rest,
   steal,
 } from "./travelerSlice";
-
 import { useState } from "react";
+import { RootTravelerState } from "../types/traveler";
 
 const Traveler = () => {
   const [traveling, setTraveling] = useState(0);
@@ -22,17 +22,21 @@ const Traveler = () => {
 
   const dispatch = useDispatch();
 
-  const suppliesNumber = useSelector((state) => state.traveler.supplies);
-  const cashAmount = useSelector((state) => state.traveler.cash);
-  const numberOfDays = useSelector((state) => state.traveler.days);
-  const fatigueLevels = useSelector((state) => state.traveler.fatigue);
-  const reputationLevels = useSelector((state) => state.traveler.reputation);
-  const levelOfDisrepair = useSelector((state) => state.traveler.disrepair);
-  const cashNote = useSelector((state) => state.traveler.cashWarning);
-  const suppliesNote = useSelector((state) => state.traveler.suppliesWarning);
-  const fatigueNote = useSelector((state) => state.traveler.fatigueWarning);
-  const reputationNote = useSelector((state) => state.traveler.reputationWarning);
-  const repairNote = useSelector((state) => state.traveler.repairWarning);
+  const suppliesNumber = useSelector(
+    (state : RootTravelerState) => state.traveler.supplies
+  );
+  const cashAmount = useSelector((state:RootTravelerState) => state.traveler.cash);
+  const numberOfDays = useSelector((state:RootTravelerState) => state.traveler.days);
+  const fatigueLevels = useSelector((state:RootTravelerState) => state.traveler.fatigue);
+  const reputationLevels = useSelector((state:RootTravelerState) => state.traveler.reputation);
+  const levelOfDisrepair = useSelector((state:RootTravelerState) => state.traveler.disrepair);
+  const cashNote = useSelector((state:RootTravelerState) => state.traveler.cashWarning);
+  const suppliesNote = useSelector((state:RootTravelerState) => state.traveler.suppliesWarning);
+  const fatigueNote = useSelector((state:RootTravelerState) => state.traveler.fatigueWarning);
+  const reputationNote = useSelector(
+    (state:RootTravelerState) => state.traveler.reputationWarning
+  );
+  const repairNote = useSelector((state:RootTravelerState) => state.traveler.repairWarning);
 
   const buttonNames = [
     "Travel",
@@ -44,30 +48,39 @@ const Traveler = () => {
     "Steal",
   ];
 
-  const warnings = [cashNote, suppliesNote, fatigueNote,reputationNote,repairNote];
+  const warnings = [
+    cashNote,
+    suppliesNote,
+    fatigueNote,
+    reputationNote,
+    repairNote,
+  ];
 
-  function onHandleChange(e, name: string) {
+  function onHandleChange(
+    e: React.ChangeEvent<HTMLInputElement>,
+    name: string
+  ) {
     switch (name) {
       case "Travel":
-        setTraveling(e.target.value);
+        setTraveling(Number(e.target.value));
         break;
       case "Gather":
-        setGathering(e.target.value);
+        setGathering(Number(e.target.value));
         break;
       case "Sell":
-        setSelling(e.target.value);
+        setSelling(Number(e.target.value));
         break;
       case "Repair":
-        setRepairing(e.target.value);
+        setRepairing(Number(e.target.value));
         break;
       case "Buy":
-        setBuying(e.target.value);
+        setBuying(Number(e.target.value));
         break;
       case "Rest":
-        setResting(e.target.value);
+        setResting(Number(e.target.value));
         break;
       case "Steal":
-        setStealing(e.target.value);
+        setStealing(Number(e.target.value));
         break;
 
       default:
@@ -159,9 +172,19 @@ const Traveler = () => {
       <div className="mt-6">
         <div className="flex justify-center grid-rows-1 grid-cols-7 gap-4">
           {warnings.map((warn, idx) => {
-            return <div className="border border-black h-20 w-1/6 text-center rounded-lg" key={idx+warn}>
-              {warn}
-            </div>;
+            let textColor;
+            warn == "Invalid Amount" ? textColor = "text-red-500 animate-bounce" : "";
+            warn == "Sorry not enough cash for transaction"
+              ? (textColor = "text-red-500 animate-bounce")
+              : "";
+            return (
+              <div
+                className={`border ${textColor} border-black h-20 w-1/6 flex text-center justify-center items-center rounded-lg`}
+                key={idx + warn}
+              >
+                {warn}
+              </div>
+            );
           })}
         </div>
       </div>
