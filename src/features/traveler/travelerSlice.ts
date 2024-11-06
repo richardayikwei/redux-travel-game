@@ -78,9 +78,22 @@ export const travelerSlice = createSlice({
             }
         },
         repair: (state, action) => {
-            state.supplies -= (8 * action.payload);
-            state.fatigue += (1 * action.payload);
-            state.disrepair -= (8 * action.payload);
+            if (action.payload < 0) {
+                state.repairWarning = 'Invalid Days'
+            } else if (action.payload == 0) {
+                state.repairWarning = 'Invalid number of days'
+            } else if (state.supplies < (8 * action.payload)) {
+                state.suppliesWarning = 'Not enough supplies'
+            } else if ((state.fatigue + (1 * action.payload) > 100)) {
+                state.repairWarning = 'Too tired to repair'
+
+            } else if (state.fatigue < 100) {
+                state.days += action.payload
+                state.supplies -= (8 * action.payload);
+                state.fatigue += (1 * action.payload);
+                state.disrepair -= (8 * action.payload);
+            }
+
         },
         steal: (state, action) => {
             state.supplies += (4 * action.payload);

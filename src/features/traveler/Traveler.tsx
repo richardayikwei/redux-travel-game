@@ -218,7 +218,7 @@ const Traveler = () => {
             warn === "Unable to continue traveling"
               ? (textColor = "text-red-500 animate-bounce")
               : "";
-            warn === "Extreme Tiredness"
+            warn === "Too tired to repair"
               ? (textColor = "text-red-500 animate-bounce")
               : "";
             warn === "Invalid number of days"
