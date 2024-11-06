@@ -28,6 +28,11 @@ const Traveler = () => {
   const fatigueLevels = useSelector((state) => state.traveler.fatigue);
   const reputationLevels = useSelector((state) => state.traveler.reputation);
   const levelOfDisrepair = useSelector((state) => state.traveler.disrepair);
+  const cashNote = useSelector((state) => state.traveler.cashWarning);
+  const suppliesNote = useSelector((state) => state.traveler.suppliesWarning);
+  const fatigueNote = useSelector((state) => state.traveler.fatigueWarning);
+  const reputationNote = useSelector((state) => state.traveler.reputationWarning);
+  const repairNote = useSelector((state) => state.traveler.repairWarning);
 
   const buttonNames = [
     "Travel",
@@ -38,6 +43,8 @@ const Traveler = () => {
     "Rest",
     "Steal",
   ];
+
+  const warnings = [cashNote, suppliesNote, fatigueNote,reputationNote,repairNote];
 
   function onHandleChange(e, name: string) {
     switch (name) {
@@ -148,6 +155,15 @@ const Traveler = () => {
             </div>
           );
         })}
+      </div>
+      <div className="mt-6">
+        <div className="flex justify-center grid-rows-1 grid-cols-7 gap-4">
+          {warnings.map((warn, idx) => {
+            return <div className="border border-black h-20 w-1/6 text-center rounded-lg" key={idx+warn}>
+              {warn}
+            </div>;
+          })}
+        </div>
       </div>
       <div className="flex justify-center mt-6">
         <table className="border-2 table-auto text-center h-20 divide-y">

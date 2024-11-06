@@ -9,11 +9,21 @@ export const travelerSlice = createSlice({
         fatigue: 0,
         disrepair: 0,
         reputation: 100,
+        cashWarning: 'Sorry not enough cash',
+        suppliesWarning: 'Sorry not enough supplies',
+        fatigueWarning: 'Warning meduim tiredness',
+        reputationWarning: 'Suspicious character',
+        repairWarning: 'Meduim damage to wagon',
+
     },
     reducers: {
         buy: (state, action) => {
-            state.supplies += (2 * action.payload);
-            state.cash -= action.payload;
+            if ((state.cash - action.payload) < 0) {
+                state.cashWarning = 'Sorry you have run out of cash';
+            } else {
+                state.supplies += (2 * action.payload);
+                state.cash -= action.payload;
+            }
         },
         gather: (state, action) => {
             state.days += action.payload;
