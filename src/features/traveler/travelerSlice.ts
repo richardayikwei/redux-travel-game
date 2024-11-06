@@ -50,10 +50,18 @@ export const travelerSlice = createSlice({
             }
         },
         travel: (state, action) => {
-            state.days += action.payload;
-            state.supplies -= (6 * action.payload);
-            state.fatigue += action.payload;
-            state.disrepair += (3 * action.payload);
+            if (action.payload < 0) {
+                state.suppliesWarning = 'Invalid Days'
+            } else if (action.payload > (state.supplies - (6 * action.payload))) {
+                state.suppliesWarning = 'Not enough supplies'
+            } else if (state.fatigue >= 100) {
+                state.fatigueWarning = 'Unable to continue traveling'
+            } else if (state.fatigue < 100) {
+                state.days += action.payload;
+                state.supplies -= (6 * action.payload);
+                state.fatigue += action.payload;
+                state.disrepair += (3 * action.payload);
+            }
         },
         rest: (state, action) => {
             state.days += action.payload;

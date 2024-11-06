@@ -212,6 +212,12 @@ const Traveler = () => {
             warn === "Exceeded maximum number of supplies"
               ? (textColor = "text-red-500 animate-bounce")
               : "";
+            warn === "Not enough supplies"
+              ? (textColor = "text-red-500 animate-bounce")
+              : "";
+            warn === "Unable to continue traveling"
+              ? (textColor = "text-red-500 animate-bounce")
+              : "";
             return (
               <div
                 className={`border ${textColor} border-black h-20 w-1/6 flex text-center justify-center items-center rounded-lg`}
