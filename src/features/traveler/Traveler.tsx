@@ -19,6 +19,7 @@ const Traveler = () => {
   const [buying, setBuying] = useState(0);
   const [resting, setResting] = useState(0);
   const [stealing, setStealing] = useState(0);
+
   const dispatch = useDispatch();
 
   const suppliesNumber = useSelector((state) => state.traveler.supplies);
@@ -124,7 +125,8 @@ const Traveler = () => {
             case "Steal":
               background = "bg-green-700";
               break;
-            default: console.log(`${name} not a valid color`)
+            default:
+              console.log(`${name} not a valid color`);
               break;
           }
           return (
@@ -137,10 +139,11 @@ const Traveler = () => {
                 {name}
               </button>
               <input
+                placeholder="0"
                 title="Travel"
                 type="number"
                 onChange={(e) => onHandleChange(e, name)}
-                className="bg-blue-600 text-white text-center w-20 rounded-lg border-2 shadow-sm mt-3"
+                className="bg-blue-600 placeholder:text-slate-300 text-white text-center w-20 rounded-lg border-2 shadow-sm mt-3"
               />
             </div>
           );
