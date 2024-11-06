@@ -8,42 +8,42 @@ export const travelerSlice = createSlice({
         supplies: 0,
         fatigue: 0,
         disrepair: 0,
-        reputation: 100
+        reputation: 100,
     },
     reducers: {
         buy: (state, action) => {
-            state.supplies + (2 * action.payload);
-            state.cash - action.payload;
+            state.supplies += (2 * action.payload);
+            state.cash -= action.payload;
         },
         gather: (state, action) => {
-            state.days + action.payload;
-            state.supplies + (3 * action.payload);
-            state.fatigue + (2 * action.payload);
+            state.days += action.payload;
+            state.supplies += (3 * action.payload);
+            state.fatigue += (2 * action.payload);
         },
         sell: (state, action) => {
-            state.supplies - action.payload;
-            state.cash + (1 * action.payload);
+            state.supplies -= action.payload;
+            state.cash += (1 * action.payload);
         },
         travel: (state, action) => {
-            state.days + action.payload;
-            state.supplies - (6 * action.payload);
-            state.fatigue + action.payload;
-            state.disrepair + (3 * action.payload);
+            state.days += action.payload;
+            state.supplies -= (6 * action.payload);
+            state.fatigue += action.payload;
+            state.disrepair += (3 * action.payload);
         },
         rest: (state, action) => {
-            state.days + action.payload;
-            state.supplies - (4 * action.payload);
-            state.fatigue - action.payload;
+            state.days += action.payload;
+            state.supplies -= (4 * action.payload);
+            state.fatigue -= action.payload;
         },
         repair: (state, action) => {
-            state.supplies - (8 * action.payload);
-            state.fatigue + (1 * action.payload);
-            state.disrepair - (8 * action.payload);
+            state.supplies -= (8 * action.payload);
+            state.fatigue += (1 * action.payload);
+            state.disrepair -= (8 * action.payload);
         },
         steal: (state, action) => {
-            state.supplies + (4 * action.payload);
-            state.reputation - 20;
-        }
+            state.supplies += (4 * action.payload);
+            state.reputation -= 20;
+        },
     }
 })
 
