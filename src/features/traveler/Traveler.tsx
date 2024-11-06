@@ -175,6 +175,14 @@ const Traveler = () => {
             let textColor;
             warn == "Invalid Amount" ? textColor = "text-red-500 animate-bounce" : "";
             warn == "Sorry not enough cash for transaction"
+            warn == "Invalid Days"
+            warn == "Warning meduim tiredness"
+              ? (textColor = "text-yellow-500 animate-bounce")
+              : "";
+            warn == "Unable to continue gathering"
+              ? (textColor = "text-red-500 animate-bounce")
+              : "";
+            warn == "Exceeded maximum number of gathering days"
               ? (textColor = "text-red-500 animate-bounce")
               : "";
             return (

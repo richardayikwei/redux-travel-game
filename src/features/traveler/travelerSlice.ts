@@ -10,8 +10,8 @@ export const travelerSlice = createSlice({
         disrepair: 0,
         reputation: 100,
         cashWarning: 'Funds Available',
-        suppliesWarning: 'Sorry not enough supplies',
-        fatigueWarning: 'Warning meduim tiredness',
+        suppliesWarning: 'Adequate Supplies',
+        fatigueWarning: 'Low Tiredness',
         reputationWarning: 'Suspicious character',
         repairWarning: 'Meduim damage to wagon',
     },
@@ -27,9 +27,17 @@ export const travelerSlice = createSlice({
             }
         },
         gather: (state, action) => {
-            state.days += action.payload;
-            state.supplies += (3 * action.payload);
-            state.fatigue += (2 * action.payload);
+            if (action.payload < 0) {
+                state.suppliesWarning = 'Invalid Days'
+            } else if (action.payload > 50) {
+                state.suppliesWarning = 'Exceeded maximum number of gathering days'
+            } else if (state.fatigue >= 100) {
+                state.fatigueWarning = 'Unable to continue gathering'
+            } else if (state.fatigue < 100) {
+                state.days += action.payload;
+                state.supplies += (3 * action.payload);
+                state.fatigue += (2 * action.payload);
+            }
         },
         sell: (state, action) => {
             state.supplies -= action.payload;
