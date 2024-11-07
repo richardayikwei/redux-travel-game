@@ -105,6 +105,9 @@ export default function GameActionButton({
         title="Travel"
         type="number"
         onChange={(e) => onHandleChange(e, gameAction.name)}
+        onKeyDown={(e) =>
+          e.key === "Enter" ? onHandleClick(gameAction.name) : ""
+        }
         className="bg-blue-600 placeholder:text-slate-300 text-white text-center w-20 rounded-lg border-2 shadow-sm mt-3"
       />
     </div>
@@ -123,7 +126,7 @@ export const ResetButton = () => {
       <button
         type="button"
         title="reset button"
-        className="rounded-lg border-2 shadow-sm w-20 text-lg bg-gradient-to-r from-green-100 to-green-700"
+        className="rounded-lg border-2 shadow-sm w-40 h-10 hover:to-orange-500 text-lg bg-gradient-to-r from-green-100 to-green-700"
         onClick={() => handleReset()}
       >
         Reset
