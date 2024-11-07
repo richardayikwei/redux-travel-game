@@ -11,7 +11,6 @@ export const travelerSlice = createSlice({
         fatigue: 0,
         disrepair: 0,
         reputation: 100,
-        isLowOnCash: false,
     },
     reducers: {
         buy: (state, action) => {
@@ -68,7 +67,7 @@ export const travelerSlice = createSlice({
             } else if (state.supplies < (4 * action.payload)) {
                 toast.error(`Not Enough Supplies: Supplies needed ${(4 * action.payload)}`);
             } else if (state.fatigue <= 0) {
-                toast.error('Fully Rested: Can not continue to rest');
+                toast.error('Fully Rested: Can not continue to Rest');
             } else {
                 state.days += action.payload;
                 state.supplies -= 4 * action.payload;
@@ -77,15 +76,15 @@ export const travelerSlice = createSlice({
             }
         },
         repair: (state, action) => {
-            if (action.payload < 0) {
-                toast.error("Invalid Days");
-            } else if (action.payload == 0) {
-                toast.error("Invalid number of days");
-            } else if (state.supplies < 8 * action.payload) {
-                toast.error("Not enough supplies");
+            if (action.payload <= 0) {
+                toast.error("Invalid Number of Days: Enter a number greater than 0");
+            } else if (state.disrepair <= 0) {
+                toast.error('Fully Repaired: Can not continue to Repairing');
+            } else if (state.supplies < (8 * action.payload)) {
+                toast.error(`Not Enough Supplies: Supplies needed ${(8 * action.payload)}`);
             } else if (state.fatigue + 1 * action.payload > 100) {
-                toast.error("Too tired to repair");
-            } else if (state.fatigue < 100) {
+                toast.error("Too Tired to Repair: Consider Resting.");
+            } else{
                 state.days += action.payload;
                 state.supplies -= 8 * action.payload;
                 state.fatigue += 1 * action.payload;
