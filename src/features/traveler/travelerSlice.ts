@@ -16,6 +16,8 @@ export const travelerSlice = createSlice({
         buy: (state, action) => {
             if (action.payload <= 0) {
                 toast.error("Invalid Number of Days: Enter a number greater than 0");
+            } else if (state.reputation <= 0) {
+                toast.error('Outlaw Reputation: Law enforcement have been dispatched to apprehend you');
             } else if (state.cash - action.payload < 0) {
                 toast.error(`Not enough cash: Cash available $${state.cash}`);
             } else {
@@ -26,7 +28,8 @@ export const travelerSlice = createSlice({
         gather: (state, action) => {
             if (action.payload <= 0) {
                 toast.error("Invalid Number of Days: Enter a number greater than 0");
-
+            } else if (state.reputation <= 0) {
+                toast.error('Outlaw Reputation: Law enforcement have been dispatched to apprehend you');
             } else if (state.fatigue + (2 * action.payload) > 100) {
                 toast.error("Unable to continue gathering : Fatigue levels exceed 100");
             } else {
@@ -38,6 +41,8 @@ export const travelerSlice = createSlice({
         sell: (state, action) => {
             if (action.payload <= 0) {
                 toast.error("Invalid Number of Days: Enter a number greater than 0");
+            } else if (state.reputation <= 0) {
+                toast.error('Outlaw Reputation: Law enforcement have been dispatched to apprehend you');
             } else if (action.payload > state.supplies) {
                 toast.error(`Exceeded Supplies Available: Current supplies ${state.supplies}`);
             } else {
@@ -48,6 +53,8 @@ export const travelerSlice = createSlice({
         travel: (state, action) => {
             if (action.payload <= 0) {
                 toast.error("Invalid Number of Days: Enter a number greater than 0");
+            } else if (state.reputation <= 0) {
+                toast.error('Outlaw Reputation: Law enforcement have been dispatched to apprehend you');
             } else if (action.payload > state.supplies - (6 * action.payload)) {
                 toast.error(`Not Enough Supplies: Supplies needed ${(6 * action.payload)}`);
             } else if (state.fatigue >= 100) {
@@ -64,6 +71,8 @@ export const travelerSlice = createSlice({
         rest: (state, action) => {
             if (action.payload <= 0) {
                 toast.error("Invalid Number of Days: Enter a number greater than 0");
+            } else if (state.reputation <= 0) {
+                toast.error('Outlaw Reputation: Law enforcement have been dispatched to apprehend you');
             } else if (state.supplies < (4 * action.payload)) {
                 toast.error(`Not Enough Supplies: Supplies needed ${(4 * action.payload)}`);
             } else if (state.fatigue <= 0) {
@@ -78,13 +87,15 @@ export const travelerSlice = createSlice({
         repair: (state, action) => {
             if (action.payload <= 0) {
                 toast.error("Invalid Number of Days: Enter a number greater than 0");
+            } else if (state.reputation <= 0) {
+                toast.error('Outlaw Reputation: Law enforcement have been dispatched to apprehend you');
             } else if (state.disrepair <= 0) {
                 toast.error('Fully Repaired: Can not continue to Repairing');
             } else if (state.supplies < (8 * action.payload)) {
                 toast.error(`Not Enough Supplies: Supplies needed ${(8 * action.payload)}`);
             } else if (state.fatigue + 1 * action.payload > 100) {
                 toast.error("Too Tired to Repair: Consider Resting.");
-            } else{
+            } else {
                 state.days += action.payload;
                 state.supplies -= 8 * action.payload;
                 state.fatigue += 1 * action.payload;
@@ -92,8 +103,15 @@ export const travelerSlice = createSlice({
             }
         },
         steal: (state, action) => {
-            state.supplies += 4 * action.payload;
-            state.reputation -= 20;
+            if (action.payload <= 0) {
+                toast.error("Invalid Number of Days: Enter a number greater than 0");
+            } else if (state.reputation <= 0) {
+                toast.error('Outlaw Reputation: Law enforcement have been dispatched to apprehend you');
+            } else {
+                state.supplies += 4 * action.payload;
+                state.reputation -= (20 * action.payload);
+                state.days += action.payload;
+            }
         },
     },
 });
