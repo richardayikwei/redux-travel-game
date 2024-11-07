@@ -37,12 +37,12 @@ export const travelerSlice = createSlice({
         },
         sell: (state, action) => {
             if (action.payload < 0) {
-                toast.error("Invalid Amount");
+                toast.error("Invalid Supplies Number: Enter a positive number");
             } else if (action.payload > state.supplies) {
-                toast.error("Exceeded maximum number of supplies");
-            } else if (state.supplies > 0) {
+                toast.error(`Exceeded Supplies Available: Current supplies ${state.supplies}`);
+            } else{
                 state.supplies -= action.payload;
-                state.cash += 0.5 * action.payload;
+                state.cash += (0.5 * action.payload);
             }
         },
         travel: (state, action) => {
