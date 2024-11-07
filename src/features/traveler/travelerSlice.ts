@@ -98,9 +98,5 @@ export const travelerSlice = createSlice({
   },
 });
 
-export const { rest, travel, sell, gather, buy, repair, steal } =
-  travelerSlice.actions;
-
-export const selectTraveler = (state: RootTravelerState) => state.traveler;
 
 export default travelerSlice.reducer;
