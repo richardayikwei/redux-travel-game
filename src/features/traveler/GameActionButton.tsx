@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GameAction } from "./types";
+import { GameAction } from "../types/GameActiontypes";
 import { useDispatch } from "react-redux";
 import {
   travel,

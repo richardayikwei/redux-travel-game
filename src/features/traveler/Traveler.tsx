@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { GameAction } from "./types";
+import { GameAction } from "../types/GameActiontypes";
 import GameActionButton from "./GameActionButton";
 import { selectTraveler } from "./travelerSlice";
 
