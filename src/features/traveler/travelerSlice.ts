@@ -93,9 +93,15 @@ export const travelerSlice = createSlice({
                 state.fatigue += (1 * action.payload);
                 state.disrepair -= (8 * action.payload);
             }
-
         },
         steal: (state, action) => {
+            if (action.payload < 0) {
+                state.reputationWarning = 'Invalid Days'
+            } else if (action.payload == 0) {
+                state.reputationWarning = 'Invalid number of days'
+            } else if (state.reputation < 1) {
+                state.reputationWarning = 'You have become an outlaw'
+            } else if(state.reputation < 100)
             state.supplies += (4 * action.payload);
             state.reputation -= 20;
         },
