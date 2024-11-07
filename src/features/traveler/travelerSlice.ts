@@ -26,15 +26,13 @@ export const travelerSlice = createSlice({
         },
         gather: (state, action) => {
             if (action.payload < 0) {
-                toast.error("Invalid Days");
-            } else if (action.payload > 50) {
-                toast.error("Exceeded maximum number of gathering days");
-            } else if (state.fatigue >= 100) {
-                toast.error("Unable to continue gathering");
-            } else if (state.fatigue < 100) {
+                toast.error("Invalid Number of Days: Enter a positive number");
+            } else if (state.fatigue + (2 * action.payload) > 100) {
+                toast.error("Unable to continue gathering : Fatigue levels exceed 100");
+            } else {
                 state.days += action.payload;
-                state.supplies += 3 * action.payload;
-                state.fatigue += 2 * action.payload;
+                state.supplies += (3 * action.payload);
+                state.fatigue += (2 * action.payload);
             }
         },
         sell: (state, action) => {
