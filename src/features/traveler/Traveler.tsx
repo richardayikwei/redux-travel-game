@@ -63,7 +63,7 @@ const Traveler = () => {
           </thead>
           <tbody>
             <tr className="divide-x-2">
-              <td>{travelerState.cash}</td>
+              <td>${travelerState.cash}</td>
               <td>{travelerState.supplies}</td>
               <td>{travelerState.fatigue}</td>
               <td>{travelerState.reputation}</td>

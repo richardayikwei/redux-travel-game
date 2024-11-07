@@ -2,7 +2,7 @@
 A game using redux to manage state. There will be frequent updtes to project. The aim is to have a fully functional game with animation and visuals.
 
 ## Technologies
-React, TypeScript, TailwindCSS and Redux
+React, TypeScript,React-toastify, TailwindCSS and Redux
 
 ## React + TypeScript + Vite
 

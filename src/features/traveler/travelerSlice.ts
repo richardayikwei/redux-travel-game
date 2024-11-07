@@ -16,9 +16,9 @@ export const travelerSlice = createSlice({
     reducers: {
         buy: (state, action) => {
             if (action.payload < 0) {
-                toast.error("Invalid Amount");
+                toast.error("Invalid Amount: Enter a positive number");
             } else if (state.cash - action.payload < 0) {
-                toast.error("Not enough cash");
+                toast.error(`Not enough cash: Cash available $${state.cash}`);
             } else {
                 state.supplies += 2 * action.payload;
                 state.cash -= action.payload;
