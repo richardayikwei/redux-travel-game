@@ -107,16 +107,27 @@ export const travelerSlice = createSlice({
                 toast.error("Invalid Number of Days: Enter a number greater than 0");
             } else if (state.reputation <= 0) {
                 toast.error('Outlaw Reputation: Law enforcement have been dispatched to apprehend you');
+            } else if (state.reputation < (20 * action.payload)) {
+                toast.error(`You do not have enough Reputation for this action: Current Reputation: ${state.reputation}, Reputation Required: ${(20 * action.payload)}`);
             } else {
                 state.supplies += 4 * action.payload;
                 state.reputation -= (20 * action.payload);
                 state.days += action.payload;
             }
         },
+        reset: (state) => {
+            state.cash = 100;
+            state.days = 0;
+            state.disrepair = 0;
+            state.fatigue = 0;
+            state.reputation = 100;
+            state.supplies = 0;
+            toast.success('Game Reset Successfull');
+        }
     },
 });
 
-export const { rest, travel, sell, gather, buy, repair, steal } =
+export const { rest, travel, sell, gather, buy, repair, steal, reset } =
     travelerSlice.actions;
 export const selectTraveler = (state: RootTravelerState) => state.traveler;
 export default travelerSlice.reducer;

@@ -9,6 +9,7 @@ import {
   buy,
   rest,
   steal,
+  reset,
 } from "./travelerSlice";
 
 type GameActionButtonProps = {
@@ -109,3 +110,24 @@ export default function GameActionButton({
     </div>
   );
 }
+
+export const ResetButton = () => {
+  const dispatch = useDispatch();
+
+  function handleReset() {
+    dispatch(reset());
+  }
+
+  return (
+    <>
+      <button
+        type="button"
+        title="reset button"
+        className="rounded-lg border-2 shadow-sm w-20 text-lg bg-gradient-to-r from-green-100 to-green-700"
+        onClick={() => handleReset()}
+      >
+        Reset
+      </button>
+    </>
+  );
+};

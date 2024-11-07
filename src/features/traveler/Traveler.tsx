@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { GameAction } from "../types/GameActiontypes";
-import GameActionButton from "./GameActionButton";
+import GameActionButton, { ResetButton } from "./GameActionButton";
 import { selectTraveler } from "./travelerSlice";
 
 const Traveler = () => {
@@ -72,6 +72,9 @@ const Traveler = () => {
             </tr>
           </tbody>
         </table>
+      </div>
+      <div className="flex justify-center mt-6">
+        <ResetButton />
       </div>
     </section>
   );
