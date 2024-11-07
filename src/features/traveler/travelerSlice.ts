@@ -40,19 +40,21 @@ export const travelerSlice = createSlice({
                 toast.error("Invalid Supplies Number: Enter a positive number");
             } else if (action.payload > state.supplies) {
                 toast.error(`Exceeded Supplies Available: Current supplies ${state.supplies}`);
-            } else{
+            } else {
                 state.supplies -= action.payload;
                 state.cash += (0.5 * action.payload);
             }
         },
         travel: (state, action) => {
             if (action.payload < 0) {
-                toast.error("Invalid Days");
-            } else if (action.payload > state.supplies - 6 * action.payload) {
-                toast.error("Not enough supplies");
+                toast.error("Invalid Number of Days: Enter a positive number");
+            } else if (action.payload > state.supplies - (6 * action.payload)) {
+                toast.error(`Not Enough Supplies: Supplies needed ${(6 * action.payload)}`);
             } else if (state.fatigue >= 100) {
-                toast.error("Unable to continue traveling");
-            } else if (state.fatigue < 100) {
+                toast.error("Unable to Continue Traveling: Fatigue levels exceed 100, consider Resting.");
+            } else if (state.disrepair >= 100) {
+                toast.error("Unable to Continue Traveling: Disrepair levels exceed 100, consider Repairing wagon.");
+            } else {
                 state.days += action.payload;
                 state.supplies -= 6 * action.payload;
                 state.fatigue += action.payload;
