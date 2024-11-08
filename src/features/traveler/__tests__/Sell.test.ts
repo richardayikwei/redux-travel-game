@@ -1,13 +1,6 @@
-import travelerReducer, {
-    travel,
-    sell,
-    repair,
-    rest,
-    steal,
-    reset,
-} from "../travelerSlice";
+import travelerReducer, { sell } from "../travelerSlice";
 import '@testing-library/jest-dom';
-import { initialState, zeroReputationState, negativeReputationState, suppliesState } from "../data/testStatesData";
+import { initialState, zeroReputationState, negativeReputationState, suppliesState } from "./test-data/testStatesData";
 
 
 
@@ -30,10 +23,10 @@ describe('sell travel reducer', () => {
     test('should update supplies and cash if reputation is not less than or equal to zero and supplies are not less than payload', () => {
         const result = {
             cash: 100.5,
-            days: 0,
-            supplies: 0,
+            days: 1,
+            supplies: 5,
             fatigue: 0,
-            disrepair: 0,
+            disrepair: 3,
             reputation: 100,
         }
         expect(travelerReducer(suppliesState, sell(1))).toStrictEqual(result);

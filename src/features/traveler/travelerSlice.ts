@@ -55,7 +55,7 @@ export const travelerSlice = createSlice({
                 toast.error("Invalid Number of Days: Enter a number greater than 0");
             } else if (state.reputation <= 0) {
                 toast.error('Outlaw Reputation: Law enforcement have been dispatched to apprehend you');
-            } else if (action.payload > state.supplies - (6 * action.payload)) {
+            } else if (state.supplies < (action.payload * 6)) {
                 toast.error(`Not Enough Supplies: Supplies needed ${(6 * action.payload)}`);
             } else if (state.fatigue >= 100) {
                 toast.error("Unable to Continue Traveling: Fatigue levels exceed 100, consider Resting.");

@@ -1,7 +1,7 @@
 
 import travelerReducer, { buy } from "../travelerSlice";
 import '@testing-library/jest-dom';
-import { initialState, zeroReputationState, negativeReputationState} from "../data/testStatesData";
+import { initialState, zeroReputationState, negativeReputationState} from "./test-data/testStatesData";
 
 
 describe(' buy traveler reducer', () => {
