@@ -31,3 +31,12 @@ export const fatiguedState = {
     disrepair: 0,
     reputation: 100,
 }
+
+export const suppliesState = {
+    cash: 100,
+    days: 0,
+    supplies: 1,
+    fatigue: 0,
+    disrepair: 0,
+    reputation: 100,
+}
