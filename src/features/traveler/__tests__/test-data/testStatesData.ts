@@ -26,9 +26,9 @@ export const negativeReputationState = {
 export const fatiguedState = {
     cash: 100,
     days: 0,
-    supplies: 0,
+    supplies: 8,
     fatigue: 99,
-    disrepair: 0,
+    disrepair: 8,
     reputation: 100,
 }
 
@@ -44,9 +44,9 @@ export const restedState = {
 export const suppliesState = {
     cash: 100,
     days: 1,
-    supplies: 6,
+    supplies: 8,
     fatigue: 3,
-    disrepair: 6,
+    disrepair: 8,
     reputation: 100,
 }
 
@@ -56,5 +56,14 @@ export const disrepairState = {
     supplies: 6,
     fatigue: 0,
     disrepair: 100,
+    reputation: 100,
+}
+
+export const repairedState = {
+    cash: 100,
+    days: 0,
+    supplies: 8,
+    fatigue: 0,
+    disrepair: 0,
     reputation: 100,
 }

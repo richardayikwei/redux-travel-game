@@ -24,9 +24,9 @@ describe('sell travel reducer', () => {
         const result = {
             cash: 100.5,
             days: 1,
-            supplies: 5,
+            supplies: 7,
             fatigue: 3,
-            disrepair: 6,
+            disrepair: 8,
             reputation: 100,
         }
         expect(travelerReducer(suppliesState, sell(1))).toStrictEqual(result);

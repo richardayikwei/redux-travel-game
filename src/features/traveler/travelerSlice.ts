@@ -93,12 +93,12 @@ export const travelerSlice = createSlice({
                 toast.error('Fully Repaired: Can not continue to Repairing');
             } else if (state.supplies < (8 * action.payload)) {
                 toast.error(`Not Enough Supplies: Supplies needed ${(8 * action.payload)}`);
-            } else if (state.fatigue + 1 * action.payload > 100) {
+            } else if (state.fatigue + action.payload >= 100) {
                 toast.error("Too Tired to Repair: Consider Resting.");
             } else {
                 state.days += action.payload;
                 state.supplies -= 8 * action.payload;
-                state.fatigue += 1 * action.payload;
+                state.fatigue += action.payload;
                 state.disrepair -= 8 * action.payload;
             }
         },

@@ -30,9 +30,9 @@ describe('travel reducer', () => {
         const result = {
             cash: 100,
             days: 2,
-            supplies: 0,
+            supplies: 2,
             fatigue: 4,
-            disrepair: 9,
+            disrepair: 11,
             reputation: 100,
         }
         expect(travelerReducer(suppliesState, travel(1))).toStrictEqual(result);
