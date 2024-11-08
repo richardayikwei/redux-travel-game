@@ -1,12 +1,6 @@
-import travelerReducer, {
-    travel,
-    repair,
-    rest,
-    steal,
-    reset,
-} from "../travelerSlice";
+import travelerReducer, { travel } from "../travelerSlice";
 import '@testing-library/jest-dom';
-import { initialState, zeroReputationState, negativeReputationState, fatiguedState, disrepairState,suppliesState } from "./test-data/testStatesData";
+import { initialState, zeroReputationState, negativeReputationState, fatiguedState, disrepairState, suppliesState } from "./test-data/testStatesData";
 
 
 
@@ -37,8 +31,8 @@ describe('travel reducer', () => {
             cash: 100,
             days: 2,
             supplies: 0,
-            fatigue: 1,
-            disrepair: 6,
+            fatigue: 4,
+            disrepair: 9,
             reputation: 100,
         }
         expect(travelerReducer(suppliesState, travel(1))).toStrictEqual(result);
