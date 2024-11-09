@@ -1,6 +1,6 @@
 import travelerReducer, { rest } from "../travelerSlice";
 import '@testing-library/jest-dom';
-import { initialState, zeroReputationState, negativeReputationState, restedState, disrepairState, suppliesState } from "./test-data/testStatesData";
+import { initialState, zeroReputationState, negativeReputationState, restedState, suppliesState } from "./test-data/testStatesData";
 
 
 
