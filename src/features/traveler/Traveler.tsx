@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { GameAction } from "../types/GameActiontypes";
 import GameActionButton, { ResetButton } from "./GameActionButton";
 import { selectTraveler } from "./travelerSlice";
+import AnimationCom from "../animation/AnimationCom";
 
 const Traveler = () => {
   const travelerState = useSelector(selectTraveler);
@@ -38,8 +39,8 @@ const Traveler = () => {
   ];
 
   return (
-    <section>
-      <div className="flex justify-evenly mt-5">
+    <section className="container mx-auto w-screen">
+      <div className="flex justify-between mt-5 md:max-w-[100rem]">
         {gameActions.map((gameAction, idx) => {
           return (
             <GameActionButton
@@ -49,26 +50,34 @@ const Traveler = () => {
           );
         })}
       </div>
-      <div className="flex justify-center mt-6">
-        <table className="border-2 table-auto text-center h-20 divide-y">
-          <thead>
-            <tr className="divide-x-2 ">
-              <th className="p-4">Cash</th>
-              <th className="p-4">Supplies</th>
-              <th className="p-4">Fatigue</th>
-              <th className="p-4">Reputation</th>
-              <th className="p-4">Disrepair</th>
-              <th className="p-4">Days</th>
-            </tr>
-          </thead>
+      <div className="flex justify-between mt-6 md:max-w-[100rem]">
+        <AnimationCom />
+        <table className="border-2 w-36 text-center h-20">
           <tbody>
-            <tr className="divide-x-2">
-              <td>${travelerState.cash}</td>
-              <td>{travelerState.supplies}</td>
-              <td>{travelerState.fatigue}</td>
-              <td>{travelerState.reputation}</td>
-              <td>{travelerState.disrepair}</td>
-              <td>{travelerState.days}</td>
+            <tr>
+              <th className="w-10 h-16">Cash</th>
+              <td className="w-10 h-16">${travelerState.cash}</td>
+            </tr>
+            <tr>
+              <th className="w-10 h-16">Supplies</th>
+              <td className="w-10 h-16">{travelerState.supplies}</td>
+            </tr>
+            <tr>
+              <th className="w-10 h-16">Fatigue</th>
+              <td className="w-10 h-16">{travelerState.fatigue}</td>
+            </tr>
+            <tr>
+              <th className="w-10 h-16">Reputation</th>
+              <td className="w-10 h-16">{travelerState.reputation}</td>
+            </tr>
+
+            <tr>
+              <th className="w-10 h-16">Disrepair</th>
+              <td className="w-10 h-16">{travelerState.disrepair}</td>
+            </tr>
+            <tr>
+              <th className="w-10 h-16">Days</th>
+              <td className="w-10 h-16">{travelerState.days}</td>
             </tr>
           </tbody>
         </table>
