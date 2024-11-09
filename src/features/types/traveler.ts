@@ -5,6 +5,7 @@ interface TravelerSate {
   fatigue: number;
   disrepair: number;
   reputation: number;
+  distance: number;
 }
 
 export type RootTravelerState = {

@@ -20,11 +20,15 @@ const AnimationCom = () => {
     image = assests.supplied;
   }
 
+    if (travelerState.distance > 0) {
+        image1 = assests.traveling;
+   }
+    
   return (
     <div>
       <figure className="flex container mx-auto h-[30rem]">
         <img src={image} alt="" className="h-[30rem] w-[30rem] rounded-2xl" />
-        <img src={image} alt="" className="h-32 rounded-2xl ml-2" />
+        <img src={image1} alt="" className="h-32 rounded-2xl ml-2" />
       </figure>
     </div>
   );

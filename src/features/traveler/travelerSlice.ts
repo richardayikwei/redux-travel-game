@@ -124,6 +124,7 @@ export const travelerSlice = createSlice({
             state.fatigue = 0;
             state.reputation = 100;
             state.supplies = 0;
+            state.distance = 0;
             toast.success('Game Reset Successfull');
         }
     },

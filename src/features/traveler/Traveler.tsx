@@ -79,6 +79,10 @@ const Traveler = () => {
               <th className="w-10 h-16">Days</th>
               <td className="w-10 h-16">{travelerState.days}</td>
             </tr>
+            <tr>
+              <th className="w-10 h-16">Distance</th>
+              <td className="w-10 h-16">{travelerState.distance}</td>
+            </tr>
           </tbody>
         </table>
       </div>

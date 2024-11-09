@@ -14,5 +14,4 @@ export const assests = {
     traveling: traveling,
     fatigued: fatigued,
     outlaw: outlaw,
-    travelingWagon:traveling
 }
