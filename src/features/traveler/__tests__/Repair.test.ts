@@ -1,8 +1,4 @@
-import travelerReducer, {
-    repair,
-    steal,
-    reset,
-} from "../travelerSlice";
+import travelerReducer, { repair } from "../travelerSlice";
 import '@testing-library/jest-dom';
 import { initialState, zeroReputationState, negativeReputationState, suppliesState, repairedState, fatiguedState } from "./test-data/testStatesData";
 
