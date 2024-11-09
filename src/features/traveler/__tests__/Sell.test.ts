@@ -28,6 +28,7 @@ describe('sell travel reducer', () => {
             fatigue: 3,
             disrepair: 8,
             reputation: 100,
+            distance: 0
         }
         expect(travelerReducer(suppliesState, sell(1))).toStrictEqual(result);
     });

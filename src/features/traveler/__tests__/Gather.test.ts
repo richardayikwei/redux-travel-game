@@ -28,6 +28,7 @@ describe('gather travel reducer', () => {
             fatigue: 2,
             disrepair: 0,
             reputation: 100,
+            distance: 0
         }
         expect(travelerReducer(initialState, gather(1))).toStrictEqual(result);
     });

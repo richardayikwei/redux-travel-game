@@ -28,6 +28,7 @@ describe('steal reducer', () => {
             fatigue: 3,
             disrepair: 8,
             reputation: 80,
+            distance: 0
         }
         expect(travelerReducer(suppliesState, steal(1))).toStrictEqual(result);
     });

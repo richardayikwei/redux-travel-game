@@ -31,6 +31,7 @@ describe('rest reducer', () => {
             fatigue: 2,
             disrepair: 8,
             reputation: 100,
+            distance: 0
         }
         expect(travelerReducer(suppliesState, rest(1))).toStrictEqual(result);
     });

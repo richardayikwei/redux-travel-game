@@ -11,6 +11,7 @@ export const travelerSlice = createSlice({
         fatigue: 0,
         disrepair: 0,
         reputation: 100,
+        distance: 0,
     },
     reducers: {
         buy: (state, action) => {
@@ -66,6 +67,7 @@ export const travelerSlice = createSlice({
                 state.supplies -= 6 * action.payload;
                 state.fatigue += action.payload;
                 state.disrepair += 3 * action.payload;
+                state.distance += 10
             }
         },
         rest: (state, action) => {

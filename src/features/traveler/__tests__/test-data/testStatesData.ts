@@ -5,6 +5,7 @@ export const initialState = {
     fatigue: 0,
     disrepair: 0,
     reputation: 100,
+    distance:0
 }
 
 export const zeroReputationState = {
@@ -14,6 +15,7 @@ export const zeroReputationState = {
     fatigue: 0,
     disrepair: 0,
     reputation: 0,
+    distance: 0
 }
 export const negativeReputationState = {
     cash: 100,
@@ -22,6 +24,7 @@ export const negativeReputationState = {
     fatigue: 0,
     disrepair: 0,
     reputation: -1,
+    distance: 0
 }
 export const fatiguedState = {
     cash: 100,
@@ -30,6 +33,7 @@ export const fatiguedState = {
     fatigue: 99,
     disrepair: 8,
     reputation: 100,
+    distance: 0
 }
 
 export const restedState = {
@@ -39,6 +43,7 @@ export const restedState = {
     fatigue: 0,
     disrepair: 0,
     reputation: 100,
+    distance: 0
 }
 
 export const suppliesState = {
@@ -48,6 +53,7 @@ export const suppliesState = {
     fatigue: 3,
     disrepair: 8,
     reputation: 100,
+    distance: 0
 }
 
 export const disrepairState = {
@@ -57,6 +63,7 @@ export const disrepairState = {
     fatigue: 0,
     disrepair: 100,
     reputation: 100,
+    distance: 0
 }
 
 export const repairedState = {
@@ -66,4 +73,5 @@ export const repairedState = {
     fatigue: 0,
     disrepair: 0,
     reputation: 100,
+    distance: 0
 }
