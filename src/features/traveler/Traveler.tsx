@@ -40,7 +40,16 @@ const Traveler = () => {
 
   return (
     <section className="container mx-auto w-screen">
-      <div className="flex justify-between mt-5 md:max-w-[100rem]">
+      <div className="text-center md:hidden">
+        <span className="mr-24 animate-pulse text-2xl bold text-blue-600">
+          {"<<"}
+        </span>
+        Scroll
+        <span className="ml-24 animate-pulse text-2xl bold text-blue-600">
+          {">>"}
+        </span>
+      </div>
+      <div className="flex justify-between mt-5 md:max-w-[100rem] overflow-scroll">
         {gameActions.map((gameAction, idx) => {
           return (
             <GameActionButton
