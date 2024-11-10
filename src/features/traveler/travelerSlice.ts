@@ -24,6 +24,7 @@ export const travelerSlice = createSlice({
             } else {
                 state.supplies += 2 * action.payload;
                 state.cash -= action.payload;
+                toast.success(`Buying....: ${state.supplies} Supplies Available`);
             }
         },
         gather: (state, action) => {
@@ -37,6 +38,7 @@ export const travelerSlice = createSlice({
                 state.days += action.payload;
                 state.supplies += (3 * action.payload);
                 state.fatigue += (2 * action.payload);
+                toast.success(`Gathering....: ${state.supplies} Supplies Available`);
             }
         },
         sell: (state, action) => {
@@ -49,6 +51,7 @@ export const travelerSlice = createSlice({
             } else {
                 state.supplies -= action.payload;
                 state.cash += (0.5 * action.payload);
+                toast.success(`Selling....: ${state.supplies} Supplies Available`);
             }
         },
         travel: (state, action) => {
@@ -67,7 +70,8 @@ export const travelerSlice = createSlice({
                 state.supplies -= 6 * action.payload;
                 state.fatigue += action.payload;
                 state.disrepair += 3 * action.payload;
-                state.distance += 10
+                state.distance += 10 * action.payload;
+                toast.success(`Traveling....: ${state.supplies} Supplies Available`);
             }
         },
         rest: (state, action) => {
@@ -83,7 +87,7 @@ export const travelerSlice = createSlice({
                 state.days += action.payload;
                 state.supplies -= 4 * action.payload;
                 state.fatigue -= action.payload;
-                toast.success("Reducing tiredness....");
+                toast.success(`Resting....: ${state.supplies} Supplies Available`);
             }
         },
         repair: (state, action) => {
@@ -102,6 +106,7 @@ export const travelerSlice = createSlice({
                 state.supplies -= 8 * action.payload;
                 state.fatigue += action.payload;
                 state.disrepair -= 8 * action.payload;
+                toast.success(`Repairing....: ${state.supplies} Supplies Available`);
             }
         },
         steal: (state, action) => {
@@ -115,6 +120,7 @@ export const travelerSlice = createSlice({
                 state.supplies += 4 * action.payload;
                 state.reputation -= (20 * action.payload);
                 state.days += action.payload;
+                toast.success(`Stealing....: ${state.supplies} Supplies Available`);
             }
         },
         reset: (state) => {
