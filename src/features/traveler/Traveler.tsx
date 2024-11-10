@@ -49,7 +49,7 @@ const Traveler = () => {
           {">>"}
         </span>
       </div>
-      <div className="flex justify-between mt-5 md:max-w-[100rem] overflow-scroll">
+      <div className="flex justify-between mt-5 md:max-w-[100rem] overflow-x-auto md:overflow-hidden">
         {gameActions.map((gameAction, idx) => {
           return (
             <GameActionButton
