@@ -95,7 +95,7 @@ export default function GameActionButton({
     <div className="flex flex-col ">
       <button
         type="button"
-        className={` ${gameAction.backgroundColor} rounded-lg border-2 shadow-sm w-20 text-lg md:hover:bg-orange-500`}
+        className={` ${gameAction.backgroundColor} rounded-lg border-2 shadow-sm w-20 text-lg md:hover:bg-orange-500 active:opacity-5`}
         onClick={() => onHandleClick(gameAction.name)}
       >
         {gameAction.name}
@@ -126,7 +126,7 @@ export const ResetButton = () => {
       <button
         type="button"
         title="reset button"
-        className="rounded-lg border-2 shadow-sm w-40 h-10 md:hover:to-orange-500 text-lg bg-gradient-to-r from-green-100 to-green-700 relative md:top-[-7rem] "
+        className="rounded-lg border-2 shadow-sm w-40 h-10 md:hover:to-orange-500 text-lg bg-gradient-to-r from-green-100 to-green-700 relative md:top-[-7rem] active:opacity-5"
         onClick={() => handleReset()}
       >
         Reset
