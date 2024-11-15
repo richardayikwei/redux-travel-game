@@ -126,7 +126,7 @@ export const ResetButton = () => {
       <button
         type="button"
         title="reset button"
-        className="rounded-lg border-2 shadow-sm min-w-20  h-10 md:hover:to-orange-500 text-lg bg-gradient-to-r from-green-100 to-green-700  active:opacity-5"
+        className="rounded-lg border-2 shadow-sm min-w-20  h-10 md:hover:to-orange-500 text-lg bg-green-600 active:opacity-5"
         onClick={() => handleReset()}
       >
         Reset

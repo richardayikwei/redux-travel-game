@@ -39,7 +39,7 @@ const Traveler = () => {
   ];
 
   return (
-    <section className="container mx-auto w-screen md:w-2/3 border border-bl px-6 pb-6 rounded-lg">
+    <section className="container mx-auto w-screen md:w-2/3 border-4 border-bl px-6 pb-6 rounded-lg">
       <div className="flex justify-between mt-6 md:max-w-[100rem]">
         <AnimationCom />
         <table className="border-2 w-36 text-center h-20">
@@ -70,11 +70,11 @@ const Traveler = () => {
               <td className="w-10 h-16">{travelerState.days}</td>
             </tr>
             <tr>
-              <th className="w-10 h-14">Distance</th>
-              <td className="w-10 h-14">{travelerState.distance}</td>
+              <th className="w-10 h-10">Distance</th>
+              <td className="w-10 h-10">{travelerState.distance}</td>
             </tr>
             <tr className="col-span-2 flex pl-2">
-              <th className="w-10">
+              <th className="w-10 pb-2">
                 <ResetButton />
               </th>
             </tr>

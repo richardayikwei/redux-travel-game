@@ -33,7 +33,7 @@ export const travelerSlice = createSlice({
             } else if (state.reputation <= 0) {
                 toast.error('Outlaw Reputation: Law enforcement have been dispatched to apprehend you');
             } else if (state.fatigue + (2 * action.payload) > 100) {
-                toast.error("Unable to continue gathering : Fatigue levels exceed 100");
+                toast.error("Unable to continue gathering : New fatigue levels exceed 100");
             } else {
                 state.days += action.payload;
                 state.supplies += (3 * action.payload);
@@ -62,7 +62,7 @@ export const travelerSlice = createSlice({
             } else if (state.supplies < (action.payload * 6)) {
                 toast.error(`Not Enough Supplies: Supplies needed ${(6 * action.payload)}`);
             } else if (state.fatigue >= 100) {
-                toast.error("Unable to Continue Traveling: Fatigue levels exceed 100, consider Resting.");
+                toast.error("Unable to Continue Traveling: New fatigue levels exceed 100, consider Resting.");
             } else if (state.disrepair >= 100) {
                 toast.error("Unable to Continue Traveling: Disrepair levels exceed 100, consider Repairing wagon.");
             } else {
