@@ -43,7 +43,7 @@ const Traveler = () => {
         <div className="flex justify-around mt-6 p-3 md:w-[50rem] border rounded-xl bg-green-500">
           {gameStats.map((stat, index) => {
             return (
-              <div key={stat + index}>
+              <div key={stat.stat + index}>
                 <div className="text-lg font-mono">{stat.stat}</div>
                 <div className="text-center">{stat.value}</div>
               </div>
@@ -58,7 +58,7 @@ const Traveler = () => {
               return (
                 <GameActionButton
                   gameAction={gameAction}
-                  key={gameAction + index}
+                  key={gameAction.name + index}
                 />
               );
             })}
@@ -71,7 +71,7 @@ const Traveler = () => {
               return (
                 <GameActionButton
                   gameAction={gameAction}
-                  key={gameAction + index}
+                  key={gameAction.name + index}
                 />
               );
             })}
