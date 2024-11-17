@@ -92,7 +92,7 @@ export default function GameActionButton({
   }
 
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col">
       <button
         type="button"
         className={` ${gameAction.backgroundColor} rounded-lg border-2 shadow-sm w-20 text-lg md:hover:bg-orange-500 active:opacity-5`}
