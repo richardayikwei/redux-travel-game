@@ -5,7 +5,7 @@ function App() {
   return (
     <div>
       <header className="h-20 flex items-center justify-center bg-blue-400">
-        <h1 className="text-3xl text-black">Traveller Game</h1>
+        <h1 className="text-3xl text-black">Traveler Game</h1>
       </header>
       <main className="mt-6">
         <Traveler />
